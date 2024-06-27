@@ -1,35 +1,46 @@
-//Dutch National Flag Algorithm
+/*
+-- We do this via Dutch National Flag Algorithm.
+-- We initialize 3 pointers -- low,mid,high.
+-- If 0<num<low-1, num should be 0.(I)
+-- If low<num<mid-1, num should be 1.(II)
+-- If mid<num<high, num should be in any random unsorted order.(III)
+-- If high+1<num<n-1, num should be 2.(IV)
 
+-- Now we initally think low=mid=0, high=n-1 and the whole array is III section.
+-- If arr[mid]==0, we swap it with arr[low],mid++,low--(0 is added to end of I section)
+-- If arr[mid]==1, we just do mid++(since it is already there in the end of II section)
+-- If arr[mid]==2, we swap it with arr[high],high--(2 is added to start of IV section).
+
+--Thats it,Sorted!
+--O(1)
+
+*/
 class Solution {
 public:
     void sortColors(vector<int>& nums)
     {
-        int *baseP=&nums[0];
-        int *lowP=&nums[0];
-        int *midP=&nums[0];
-        int *highP=&nums[nums.size()-1];
+        int low=0,mid=0,high=nums.size()-1;
 
-        int lowInd=lowP-baseP;
-        int midInd=midP-baseP;
-        int highInd=highP-baseP;
-
-        while(midInd<highInd){
-        if(nums[midInd]==0)
+        while(mid<=high){
+        if(nums[mid]==0)
         {
-            nums[midInd]=nums[midInd]+nums[lowInd];
-            nums[lowInd]=nums[midInd]-nums[lowInd];
-            nums[midInd]=nums[midInd]-nums[lowInd];
-            lowP++;
+            int temp=nums[mid];
+            nums[mid]=nums[low];
+            nums[low]=temp;
+            mid++;
+            low++;
         }
-        else if(nums[midInd]==1){        }
+        else if(nums[mid]==1)
+        {
+            mid++;
+        }
         else
         {
-            nums[midInd]=nums[midInd]+nums[highInd];
-            nums[highInd]=nums[midInd]-nums[highInd];
-            nums[midInd]=nums[midInd]-nums[highInd];
-            highP--;
+            int temp=nums[mid];
+            nums[mid]=nums[high];
+            nums[high]=temp;
+            high--;
         }
-        midP++;
         }
 
     }
