@@ -1,3 +1,8 @@
+/*
+-- We iterate through the nums array and count th enumber of zeroes ones and store it in zero and one respectively.
+-- Then, we set the first "zero" elements to 0, next "one" elements to 1 and the remaining to 2.
+-- This is O(2n)~O(n).
+*/
 class Solution {
 public:
     void sortColors(vector<int>& nums)
