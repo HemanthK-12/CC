@@ -1,3 +1,7 @@
+/*
+-- Here, I just used bubble sort to sort through the elements.
+-- O(n^2)
+*/
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
