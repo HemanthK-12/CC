@@ -1,3 +1,5 @@
+//Just take every pair of elements and see which profit is max
+//O(n^2)
 class Solution {
 public:
     int maxProfit(vector<int>& prices)
