@@ -2,15 +2,19 @@ class Solution
 {
 public:
 
-    int nCr(int n,int r)
+    vector<int> genRow(int n)
     {
-        long long ans=1;
-        for(int i=0;i<r;i++)
+        vector<int> row(n+1);
+        row[0]=1;
+        if(n==0)
+            return row;
+        for(int i=1;i<=n;i++)
         {
-            ans=ans*(n-i);
-            ans=ans/(i+1);
+            int numerator=n-i+1;
+            int multiple=row[i-1]*numerator;
+            row[i]=multiple/i;
         }
-        return (int)ans;
+        return row;
     }
     vector<vector<int>> generate(int n)
     {
@@ -19,12 +23,7 @@ public:
         cout.tie(0);
         vector<vector<int>> pascal(n);
         for(int i=0;i<n;i++)
-        {
-            for(int j=0;j<=i;j++)
-            {
-                pascal[i].push_back(nCr(i,j));
-            }
-        }
+            pascal[i]=genRow(i);
         return pascal;
     }
 
