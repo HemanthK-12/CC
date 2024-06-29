@@ -1,3 +1,8 @@
+/*
+-- nth row of pascal's triangle (0-based indexing) has n+1 elements and are : nC0,nC1,..,nCn.
+-- we generate each row by nCr=(n-r+1)/r * nCr-1 , so O(n).
+-- we then generate n rows, totalling to O(n^2).
+*/
 class Solution
 {
 public:
