@@ -1,29 +1,31 @@
 class Solution
 {
 public:
-    int nCr(int n, int r)
-    {
-        long long res = 1;
-        for (int i = 0; i < r; i++) {
-        res = res * (n - i);
-        res = res / (i + 1);
-        }
-        return (int)(res);
-    }
 
+    int nCr(int n,int r)
+    {
+        long long ans=1;
+        for(int i=0;i<r;i++)
+        {
+            ans=ans*(n-i);
+            ans=ans/(i+1);
+        }
+        return (int)ans;
+    }
     vector<vector<int>> generate(int n)
     {
-        vector<vector<int>> ans;
-        for (int row = 1; row <= n; row++)
+        ios::sync_with_stdio(0);
+        cin.tie(0);
+        cout.tie(0);
+        vector<vector<int>> pascal(n);
+        for(int i=0;i<n;i++)
         {
-            vector<int> tempLst; // temporary list
-            for (int col = 1; col <= row; col++)
+            for(int j=0;j<=i;j++)
             {
-                tempLst.push_back(nCr(row - 1, col - 1));
+                pascal[i].push_back(nCr(i,j));
             }
-            ans.push_back(tempLst);
         }
-        return ans;
+        return pascal;
     }
 
 };
