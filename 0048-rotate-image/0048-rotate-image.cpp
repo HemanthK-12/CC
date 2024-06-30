@@ -2,6 +2,10 @@ class Solution {
 public:
     void rotate(vector<vector<int>>& matrix)
     {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
+        cout.tie(0);
+        
         int n=matrix.size();
         for(int i=0;i<n;i++)
         {
@@ -9,9 +13,7 @@ public:
             {
                 if(i==j)
                     continue;
-                int temp=matrix[i][j];
-                matrix[i][j]=matrix[j][i];
-                matrix[j][i]=temp;
+                swap(matrix[i][j],matrix[j][i]);
             }
         }
         for(int i=0;i<n;i++)
