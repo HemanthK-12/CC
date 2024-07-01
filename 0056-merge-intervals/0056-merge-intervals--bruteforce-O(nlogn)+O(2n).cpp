@@ -1,3 +1,11 @@
+/*
+-- We first sort the array to get all nearby intervals together.
+-- Then, we first check if the selected interval is already covered by another interval and if yes, it skips this.
+-- Otherwise, it checks, in 1,2 & 3,4 if 3<2 and if yes, then push 3,max(2,4) to final array.we use max(2,4 to account for both cases of intervals which are inside another and intervals which extend from another)
+-- If no, then it breaks.After breaking, it pushes start and new end to final array.
+-- This continues for all elements in the array.
+-- O(nlogn)+O(2n) [NOT O(n^2) because of continue and break, write and check once how many times each element is getting accessed]
+*/
 class Solution {
 public:
     vector<vector<int>> merge(vector<vector<int>>& intervals)
