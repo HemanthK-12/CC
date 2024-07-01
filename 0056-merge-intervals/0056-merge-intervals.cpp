@@ -2,6 +2,10 @@ class Solution {
 public:
     vector<vector<int>> merge(vector<vector<int>>& intervals)
     {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        cout.tie(NULL);
+        
         int n=intervals.size();
         vector<vector<int>> final;
         sort(intervals.begin(),intervals.end());
