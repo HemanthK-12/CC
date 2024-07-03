@@ -2,6 +2,10 @@ class Solution {
 public:
     vector<int> findErrorNums(vector<int>& nums)
     {
+        ios::sync_with_stdio(false);
+        cin.tie(NULL);
+        cout.tie(NULL);
+        
         vector<int> hash(nums.size());
         vector<int> final;
 
