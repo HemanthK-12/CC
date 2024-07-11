@@ -13,20 +13,16 @@ public:
     ListNode* middleNode(ListNode* head)
     {
         ListNode* current=head;
-        int c=0;
-        while(current!=nullptr)
-        {
-            cout<<current->val<<" ";;
-            current=current->next;
-            c++;
-        }
-        current=head;
-        cout<<c<<endl;
-        for(int i=0;i<c/2;i++)
-        {
-            head=head->next;
-        }
-        return head;
+        ListNode* slow=head;
+        ListNode* fast=head;
+        ListNode* temp=nullptr;
         
+        while(fast!=nullptr && fast->next!=nullptr)
+        {
+            slow=slow->next;
+            temp=fast->next;
+            fast=temp->next;
+        }
+        return slow;
     }
 };
