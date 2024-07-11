@@ -11,27 +11,21 @@
  #include<bits/stdc++.h>
 class Solution {
 public:
-    ListNode* reverseList(ListNode* head) {
+    ListNode* reverseList(ListNode* head)
+    {
         ios_base::sync_with_stdio(false);
         cin.tie(NULL);
         cout.tie(NULL);
-        if (head == nullptr) return nullptr;
-        ListNode* current=head;
-        ListNode* after=head->next;
-        ListNode* also=nullptr;
-
-
+        return reverseLL(head);
+    }
+    ListNode* reverseLL(ListNode* head)
+    {
+        if(head==nullptr || head->next==nullptr)
+            return head;
+        ListNode* newNode= reverseLL(head->next);
+        ListNode* end=head->next;
+        end->next=head;
         head->next=nullptr;
-        while(after!=nullptr)
-        {
-            also=after->next;
-            after->next=current;
-            current=after;
-            after=also;
-        }
-        // head->next=nullptr;
-        return current;
-
-        
+        return newNode;
     }
 };
