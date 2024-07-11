@@ -7,6 +7,11 @@
  *     ListNode(int x) : val(x), next(nullptr) {}
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
+ * Here,we are using 2 pointer approach, each at the list's head.
+ * We compare the first elements of the list and make the next element of the final list, the smalller elementt.
+ * We keep on doing this until any one of the heads becoem null.We then set the next of the tail of the final list equal to the otheer head.
+ * This saves on time by using sorted property and on space by saving into the linked lists itself.
+ * T=O(n1+n2),S=O(1)
  */
 class Solution {
 public:
