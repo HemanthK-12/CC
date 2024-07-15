@@ -7,7 +7,12 @@
  *     ListNode(int x) : val(x), next(nullptr) {}
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
+ * First traverse through the linked list and get length of linked list.
+ * Then take two pointers(1 & 2), one after another, and move lengt-n times.
+ * Now, 2 will point to the nthFromEnd node and 1 will point to it's previous node.Connect 1 to 2->next and return head.
+ * When n==length, return head->next instead of head.
  */
+ 
 class Solution {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
