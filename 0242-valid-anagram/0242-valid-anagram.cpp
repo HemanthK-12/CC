@@ -2,7 +2,7 @@ class Solution {
 public:
     bool isAnagram(string s, string t) 
     {
-        map<char,int> lookup;
+        unordered_map<char,int> lookup;
         int c=0;
         for(int i=0;i<s.length();i++)
         {
